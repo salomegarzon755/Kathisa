@@ -3,7 +3,8 @@
  -[Salomé Garzón Flórez]
  -[Katherin Daniela Cordoba Chaverra]
  -[Isabela Torres Londoño]
-**Soft Girls**
+ 
+**SoftGirls**
  
 Plataforma web para la gestión académica de instituciones educativas y organizaciones de formación. Permite administrar cursos, gestionar inscripciones, registrar asistencia y calificaciones, y organizar la información académica según el rol de cada usuario.
  
