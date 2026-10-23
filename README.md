@@ -1,2 +1,2 @@
-# Kathsa
-Aplicación web de educación
+# Kathisa
+Aplicación web de gestión para la educación
