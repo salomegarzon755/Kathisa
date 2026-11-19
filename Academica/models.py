@@ -62,7 +62,9 @@ class admin(models.Model):
 class student_status(models.Model):
     student_status_id = models.PositiveBigIntegerField(primary_key=True)
     status_name = models.CharField(max_length=50)
-
+    #constructor
+    def __str__(self):
+        return self.student_status_id
     class Meta:
         db_table = 'student_status'
 
@@ -77,6 +79,9 @@ class student(models.Model):
 class teacher_status(models.Model):
     teacher_status_id = models.PositiveBigIntegerField(primary_key=True)
     status_name = models.CharField(max_length=50)
+    #constructor
+    def __str__(self):
+        return self.teacher_status_id
 
     class Meta:
         db_table = 'teacher_status'
@@ -87,6 +92,9 @@ class teacher(models.Model):
     teacher_status = models.ForeignKey(teacher_status, on_delete=models.RESTRICT, db_column='teacher_status_id')
     biography = models.TextField()
     hire_date = models.DateField()
+    #constructor
+    def __str__(self):
+        return self.teacher_id
 
     class Meta:
         db_table = 'teacher'
@@ -122,6 +130,9 @@ class course(models.Model):
 class course_group_status(models.Model):
     course_group_status_id = models.PositiveBigIntegerField(primary_key=True)
     status_name = models.CharField(max_length=50)
+    #constructor
+    def __str__(self):
+        return self.course_group_status_id
 
     class Meta:
         db_table = 'course_group_status'
@@ -135,13 +146,19 @@ class course_group(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     max_students = models.IntegerField()
-
+    #constructor
+    def __str__(self):
+        return self.course_group_id
+    
     class Meta:
         db_table = 'course_group'
 
 class enrollment_status(models.Model):
     enrollment_status_id = models.PositiveBigIntegerField(primary_key=True)
     status_name = models.CharField(max_length=50)
+    #constructor
+    def __str__(self):
+        return self.enrollment_status_id
 
     class Meta:
         db_table = 'enrollment_status'
@@ -152,6 +169,9 @@ class enrollment(models.Model):
     course_group = models.ForeignKey(course_group, on_delete=models.CASCADE, db_column='course_group_id')
     enrollment_status = models.ForeignKey(enrollment_status, on_delete=models.RESTRICT, db_column='enrollment_status_id')
     enrollment_date = models.DateField()
+    #constructor
+    def __str__(self):
+        return self.enrollment_id
 
     class Meta:
         db_table = 'enrollment'
@@ -160,6 +180,9 @@ class modality(models.Model):
     modality_id = models.PositiveBigIntegerField(primary_key=True)
     modality_name = models.CharField(max_length=50)
     description = models.TextField()
+    #constructor
+    def __str__(self):
+        return self.modality_id
 
     class Meta:
         db_table = 'modality'
@@ -194,6 +217,9 @@ class schedule(models.Model):
     day_week = models.IntegerField()
     start_time = models.TimeField()
     end_time = models.TimeField()
+    #constructor
+    def __str__(self):
+        return self.schedule_id
 
     class Meta:
         db_table = 'schedule'
@@ -201,6 +227,9 @@ class schedule(models.Model):
 class attendance_status(models.Model):
     attendance_status_id = models.PositiveBigIntegerField(primary_key=True)
     status_name = models.CharField(max_length=50)
+    #constructor
+    def __str__(self):
+        return self.attendance_status_id
 
     class Meta:
         db_table = 'attendance_status'
@@ -216,6 +245,9 @@ class attendance(models.Model):
     arrive_time = models.TimeField()
     departure_time = models.TimeField()
     observations = models.TextField()
+    #constructor
+    def __str__(self):
+        return self.attendance_id
 
     class Meta:
         db_table = 'attendance'
@@ -231,6 +263,9 @@ class evaluation(models.Model):
     evaluation_date = models.DateField()
     due_date = models.DateField()
     allow_late_evaluation = models.BooleanField()
+    #constructor
+    def __str__(self):
+        return self.evaluation_id
 
     class Meta:
         db_table = 'evaluation'
@@ -243,6 +278,9 @@ class assigment_submission(models.Model):
     submission_uri = models.CharField(max_length=200)
     submission_text = models.TextField()
     submission_status = models.CharField(max_length=15)
+    #constructor
+    def __str__(self):
+        return self.submission_id
 
     class Meta:
         db_table = 'assigment_submission'
@@ -255,6 +293,9 @@ class grade(models.Model):
     gredue_value = models.DecimalField(max_digits=3, decimal_places=2)
     feedback = models.TextField()
     graded_at = models.DateTimeField()
+    #constructor
+    def __str__(self):
+        return self.grade_id
 
     class Meta:
         db_table = 'grade'
