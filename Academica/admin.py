@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import user_status, gender, user, user_profile, admin_status, administrator, student_status, student, teacher_status, teacher, course_status, course_category, course, course_group_status, course_group, enrollment_status, enrollment, modality, session_status, class_session, schedule, attendance_status, attendance, evaluation, assigment_submission, grade, certificate, notificacion
+from .models import notification, user_status, gender, user, user_profile, admin_status, administrator, student_status, student, teacher_status, teacher, course_status, course_category, course, course_group_status, course_group, enrollment_status, enrollment, modality, session_status, class_session, schedule, attendance_status, attendance, evaluation, assignment_submission, grade, certificate, notificacion
 
 # Register your models here.
+
 
 admin.site.register(user_status)
 admin.site.register(gender)
@@ -27,7 +28,7 @@ admin.site.register(schedule)
 admin.site.register(attendance_status)
 admin.site.register(attendance)
 admin.site.register(evaluation)
-admin.site.register(assigment_submission)
+admin.site.register(assignment_submission)
 admin.site.register(grade)
 admin.site.register(certificate)
-admin.site.register(notificacion)
+admin.site.register(notification)
