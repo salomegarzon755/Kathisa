@@ -81,7 +81,7 @@ class teacher_status(models.Model):
     status_name = models.CharField(max_length=50)
     #constructor
     def __str__(self):
-        return self.teacher_status_id
+        return str(self.teacher_status_id)
 
     class Meta:
         db_table = 'teacher_status'
@@ -94,7 +94,7 @@ class teacher(models.Model):
     hire_date = models.DateField()
     #constructor
     def __str__(self):
-        return self.teacher_id
+        return str(self.teacher_id)
 
     class Meta:
         db_table = 'teacher'
@@ -132,7 +132,7 @@ class course_group_status(models.Model):
     status_name = models.CharField(max_length=50)
     #constructor
     def __str__(self):
-        return self.course_group_status_id
+        return str(self.course_group_status_id)
 
     class Meta:
         db_table = 'course_group_status'
@@ -148,7 +148,7 @@ class course_group(models.Model):
     max_students = models.IntegerField()
     #constructor
     def __str__(self):
-        return self.course_group_id
+        return str(self.course_group_id)
     
     class Meta:
         db_table = 'course_group'
