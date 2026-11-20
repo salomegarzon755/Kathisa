@@ -1,2 +1,59 @@
 [
+{
+  "model": "Academica.user_status",
+  "pk": 123,
+  "fields": {
+    "name_status": "Active"
+  }
+},
+{
+  "model": "Academica.user_status",
+  "pk": 654,
+  "fields": {
+    "name_status": "Activo"
+  }
+},
+{
+  "model": "Academica.gender",
+  "pk": 1,
+  "fields": {
+    "name": "Female"
+  }
+},
+{
+  "model": "Academica.admin_status",
+  "pk": 123,
+  "fields": {
+    "status_name": "Active"
+  }
+},
+{
+  "model": "Academica.course_status",
+  "pk": 4567,
+  "fields": {
+    "course_status": "Active"
+  }
+},
+{
+  "model": "Academica.course_category",
+  "pk": 9512,
+  "fields": {
+    "category_name": "Introducciones",
+    "description": "Introducción al curso y primeros encuentros y explicaciones"
+  }
+},
+{
+  "model": "Academica.session_status",
+  "pk": 445,
+  "fields": {
+    "status_name": "Active"
+  }
+},
+{
+  "model": "Academica.session_status",
+  "pk": 987,
+  "fields": {
+    "status_name": "Activo"
+  }
+}
 ]
