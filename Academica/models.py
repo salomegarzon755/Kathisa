@@ -193,7 +193,7 @@ class course_group(models.Model):
 
     def __str__(self):
         return str(self.course_group_id)
-
+    
     class Meta:
         db_table = 'course_group'
 

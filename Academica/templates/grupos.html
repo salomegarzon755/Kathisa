@@ -1,0 +1,130 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Grupos | Gestión de Cursos{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <!-- ENCABEZADO -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Grupos del curso</h2>
+            <p class="text-muted mb-1">
+                Consulta los grupos asociados a este curso.
+            </p>
+            <h5 class="text-primary mt-2">
+                {{ curso.name }}
+            </h5>
+        </div>
+        <a href="{% url 'cursos' %}"
+           class="btn btn-outline-secondary">
+            Volver a cursos
+        </a>
+    </div>
+    <!-- TOTAL DE GRUPOS -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Total de grupos</h6>
+                <h3>{{ total_grupos }}</h3>
+            </div>
+        </div>
+    </div>
+    <!-- TARJETAS DE GRUPOS -->
+    <div class="row g-4">
+        {% for grupo in grupos %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+                <!-- ENCABEZADO DE TARJETA -->
+                <div class="card-header bg-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            {{ grupo.name }}
+                        </h5>
+                        <span class="badge bg-primary">
+                            #{{ grupo.course_group_id }}
+                        </span>
+                    </div>
+                </div>
+                <!-- CONTENIDO -->
+                <div class="card-body">
+                    <!-- PROFESOR -->
+                    <div class="mb-3">
+                        <small class="text-muted d-block">
+                            Profesor asignado
+                        </small>
+                        {% if grupo.teacher %}
+                            <strong>
+                                {{ grupo.teacher.user.first_name }}
+                                {{ grupo.teacher.user.last_name }}
+                            </strong>
+                        {% else %}
+                            <span class="text-muted">
+                                Sin profesor asignado
+                            </span>
+                        {% endif %}
+                    </div>
+                    <!-- FECHAS -->
+                    <div class="mb-3">
+                        <small class="text-muted d-block">
+                            Fecha de inicio
+                        </small>
+                        <strong>
+                            {{ grupo.start_date|date:"d/m/Y" }}
+                        </strong>
+                    </div>
+                    <div class="mb-3">
+                        <small class="text-muted d-block">
+                            Fecha de finalización
+                        </small>
+                        <strong>
+                            {{ grupo.end_date|date:"d/m/Y" }}
+                        </strong>
+                    </div>
+                    <!-- CAPACIDAD -->
+                    <div class="mb-3">
+                        <small class="text-muted d-block">
+                            Capacidad máxima
+                        </small>
+                        <strong>
+                            {{ grupo.max_students }} estudiantes
+                        </strong>
+                    </div>
+                    <!-- ESTADO -->
+                    <div>
+                        <small class="text-muted d-block">
+                            Estado del grupo
+                        </small>
+                        <span class="badge bg-info text-dark">
+                            {{ grupo.course_group_status.status_name }}
+                        </span>
+                    </div>
+                </div>
+                <!-- PIE DE TARJETA -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted">
+                        Curso: {{ curso.name }}
+                    </small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <!-- SIN GRUPOS -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center py-5">
+                    <h5 class="text-muted">
+                        No hay grupos registrados
+                    </h5>
+                    <p class="text-muted mb-0">
+                        Este curso todavía no tiene grupos asociados.
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
