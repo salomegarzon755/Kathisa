@@ -1,0 +1,26 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+# Archivos Python
+__pycache__/
+*.py[cod]
+# Archivos temporales y caché
+.cache/
+filecache/
+*.log
+# Archivos PHP (si no hacen parte del proyecto)
+*.php
+# Archivos de configuración local
+.env
+.env.*
+# Configuración del editor
+.vscode/
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+# Base de datos local
+db.sqlite3
+# Archivos estáticos y multimedia generados
+staticfiles/
+media/
