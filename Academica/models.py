@@ -50,14 +50,14 @@ class admin_status(models.Model):
     class Meta:
         db_table = 'admin_status'
 
-class admin(models.Model):
+class administrator(models.Model):
     admin_id = models.PositiveBigIntegerField(primary_key=True)
     user = models.ForeignKey(user, on_delete=models.CASCADE, db_column='user_id')
     admin_status = models.ForeignKey(admin_status, on_delete=models.RESTRICT, db_column='admin_status_id')
     hire_date = models.DateField()
 
     class Meta:
-        db_table = 'admin'
+        db_table = 'administrator'
 
 class student_status(models.Model):
     student_status_id = models.PositiveBigIntegerField(primary_key=True)
@@ -303,7 +303,7 @@ class grade(models.Model):
 class certificate(models.Model):
     certificate_id = models.PositiveBigIntegerField(primary_key=True)
     student = models.ForeignKey(student, on_delete=models.CASCADE, db_column='student_id')
-    admin = models.ForeignKey(admin, on_delete=models.SET_NULL, null=True, blank=True, db_column='admin_id')
+    admin = models.ForeignKey(administrator, on_delete=models.SET_NULL, null=True, blank=True, db_column='admin_id')
     certicate_code = models.CharField(max_length=30)
     issue_date = models.DateField()
 
