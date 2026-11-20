@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import notification, user_status, gender, user, user_profile, admin_status, administrator, student_status, student, teacher_status, teacher, course_status, course_category, course, course_group_status, course_group, enrollment_status, enrollment, modality, session_status, class_session, schedule, attendance_status, attendance, evaluation, assignment_submission, grade, certificate, notificacion
+from .models import user_status, gender, user, user_profile, admin_status, administrator, student_status, student, teacher_status, teacher, course_status, course_category, course, course_group_status, course_group, enrollment_status, enrollment, modality, session_status, class_session, schedule, attendance_status, attendance, evaluation, assignment_submission, grade, certificate, notification
 
 # Register your models here.
 
