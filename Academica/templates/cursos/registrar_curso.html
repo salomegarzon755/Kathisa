@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar curso{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Registrar curso</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ formulario.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            Registrar curso
+        </button>
+
+        <a href="{% url 'lista_cursos' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,9 +1,14 @@
-
 {% extends 'base.html' %}
 
 {% block title %}Cursos | Gestión de Cursos{% endblock %}
 
 {% block content %}
+
+<div class="mb-3">
+    <a href="{% url 'registrar_curso' %}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Registrar curso
+    </a>
+</div>
 
 <div class="container-fluid">
 
@@ -14,6 +19,7 @@
             Consulta y administra los cursos disponibles en la plataforma.
         </p>
     </div>
+
     <!-- ESTADÍSTICAS -->
     <div class="row mb-4">
         <div class="col-md-4">
@@ -23,14 +29,19 @@
             </div>
         </div>
     </div>
+
     <!-- TABLA DE CURSOS -->
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white py-3">
             <h5 class="mb-0">Listado de cursos</h5>
         </div>
+
         <div class="card-body">
             <div class="table-responsive">
+
                 <table class="table table-hover align-middle">
+
+                    <!-- ENCABEZADOS -->
                     <thead class="table-light">
                         <tr>
                             <th>ID curso</th>
@@ -44,40 +55,48 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
+
+                    <!-- REGISTROS -->
                     <tbody>
-                        {% for curso in cursos %}
+                        {% for c in cursos %}
                         <tr>
+                            <td>{{ c.course_id }}</td>
+
+                            <td>{{ c.name }}</td>
+
+                            <td>{{ c.course_category }}</td>
+
                             <td>
-                                {{ curso.course_id }}
+                                {{ c.description|truncatechars:50 }}
                             </td>
+
+                            <td>{{ c.duration_hours }} horas</td>
+
+                            <td>{{ c.min_passing_grade }}</td>
+
+                            <td>{{ c.min_attendance_percentage }}%</td>
+
+                            <td>{{ c.course_status }}</td>
+
+                            <!-- ACCIONES -->
                             <td>
-                                {{ curso.name }}
-                            </td>
-                            <td>
-                                {{ curso.course_category }}
-                            </td>
-                            <td>
-                                {{ curso.description|truncatechars:50 }}
-                            </td>
-                            <td>
-                                {{ curso.duration_hours }} horas
-                            </td>
-                            <td>
-                                {{ curso.min_passing_grade }}
-                            </td>
-                            <td>
-                                {{ curso.min_attendance_percentage }}%
-                            </td>
-                            <td>
-                                {{ curso.course_status }}
-                            </td>
-                            <td>
-                                <a href="{% url 'grupos' curso.course_id %}"
-                                class="btn btn-outline-primary btn-sm">
+                                <a href="{% url 'detalle_curso' c.course_id %}" class="btn btn-info btn-sm">
+                                    Detalles
+                                </a>
+
+                                <a href="{% url 'grupos' c.course_id %}" class="btn btn-outline-primary btn-sm">
                                     Ver grupos
+                                </a>
+                                <a href="#" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-square"></i> Actualizar
+                                </a>
+
+                                <a href="#" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Eliminar
                                 </a>
                             </td>
                         </tr>
+
                         {% empty %}
                         <tr>
                             <td colspan="9" class="text-center text-muted py-4">
@@ -86,10 +105,13 @@
                         </tr>
                         {% endfor %}
                     </tbody>
+
                 </table>
+
             </div>
         </div>
     </div>
+
 </div>
 
 {% endblock %}
