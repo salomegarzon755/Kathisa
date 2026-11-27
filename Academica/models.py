@@ -35,7 +35,7 @@ class user(models.Model):
     is_active = models.BooleanField()
 
     def __str__(self):
-        return str(self.user_id)
+        return str(self.first_name)
 
     class Meta:
         db_table = 'user'
@@ -87,7 +87,7 @@ class student_status(models.Model):
     status_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.student_status_id)
+        return str(self.status_name)
 
     class Meta:
         db_table = 'student_status'
@@ -110,7 +110,7 @@ class teacher_status(models.Model):
     status_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.teacher_status_id)
+        return str(self.status_name)
 
     class Meta:
         db_table = 'teacher_status'
@@ -175,7 +175,7 @@ class course_group_status(models.Model):
     status_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.course_group_status_id)
+        return str(self.status_name)
 
     class Meta:
         db_table = 'course_group_status'

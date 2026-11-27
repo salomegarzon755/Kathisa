@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block title %}Registrar grupo | Gestión de Cursos{% endblock %}
+{% block content %}
+<div class="container-fluid">
+
+    <!-- ENCABEZADO -->
+    <div class="mb-4">
+
+        <a href="{% url 'grupos' curso.course_id %}"
+           class="text-decoration-none">
+            ← Volver a grupos
+        </a>
+
+        <h2 class="mt-3 mb-1">Registrar nuevo grupo</h2>
+
+        <p class="text-muted mb-1">
+            Completa la información para crear un nuevo grupo.
+        </p>
+
+        <h5 class="text-primary mt-2">
+            Curso: {{ curso.name }}
+        </h5>
+
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Información del grupo</h5>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {% if formulario.errors %}
+                    <div class="alert alert-danger">
+                        Por favor, revisa los campos del formulario.
+                    </div>
+                {% endif %}
+
+                <div class="row g-3">
+
+                    <!-- ID DEL GRUPO -->
+                    <div class="col-md-6">
+                        <label class="form-label">ID del grupo</label>
+                        {{ formulario.course_group_id }}
+                        {{ formulario.course_group_id.errors }}
+                    </div>
+
+                    <!-- NOMBRE -->
+                    <div class="col-md-6">
+                        <label class="form-label">Nombre del grupo</label>
+                        {{ formulario.name }}
+                        {{ formulario.name.errors }}
+                    </div>
+
+                    <!-- PROFESOR -->
+                    <div class="col-md-6">
+                        <label class="form-label">Profesor asignado</label>
+                        {{ formulario.teacher }}
+                        {{ formulario.teacher.errors }}
+                    </div>
+
+                    <!-- ESTADO -->
+                    <div class="col-md-6">
+                        <label class="form-label">Estado del grupo</label>
+                        {{ formulario.course_group_status }}
+                        {{ formulario.course_group_status.errors }}
+                    </div>
+
+                    <!-- FECHA INICIO -->
+                    <div class="col-md-6">
+                        <label class="form-label" type="date">Fecha de inicio</label>
+                        {{ formulario.start_date }}
+                        {{ formulario.start_date.errors }}
+                    </div>
+
+                    <!-- FECHA FINALIZACIÓN -->
+                    <div class="col-md-6">
+                        <label class="form-label" type="date">Fecha de finalización</label>
+                        {{ formulario.end_date }}
+                        {{ formulario.end_date.errors }}
+                    </div>
+
+                    <!-- CAPACIDAD -->
+                    <div class="col-md-6">
+                        <label class="form-label">Cantidad máxima de estudiantes</label>
+                        {{ formulario.max_students }}
+                        {{ formulario.max_students.errors }}
+                    </div>
+
+                </div>
+
+                <!-- BOTONES -->
+                <div class="d-flex justify-content-end gap-2 mt-4">
+
+                    <a href="{% url 'grupos' curso.course_id %}"
+                       class="btn btn-outline-secondary">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="btn btn-primary">
+                        Registrar grupo
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
