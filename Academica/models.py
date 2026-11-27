@@ -135,11 +135,10 @@ class course_status(models.Model):
     course_status = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.course_status_id)
+        return self.course_status
 
     class Meta:
         db_table = 'course_status'
-
 
 class course_category(models.Model):
     course_category_id = models.PositiveBigIntegerField(primary_key=True)
@@ -390,3 +389,5 @@ class notification(models.Model):
 
     class Meta:
         db_table = 'notification'
+
+        

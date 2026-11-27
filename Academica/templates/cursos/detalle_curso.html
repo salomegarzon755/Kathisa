@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del curso{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Detalle del curso</h2>
+
+    <p><strong>ID:</strong> {{ curso.course_id }}</p>
+    <p><strong>Nombre:</strong> {{ curso.name }}</p>
+    <p><strong>Categoría:</strong> {{ curso.course_category }}</p>
+    <p><strong>Descripción:</strong> {{ curso.description }}</p>
+    <p><strong>Duración:</strong> {{ curso.duration_hours }} horas</p>
+    <p><strong>Nota mínima:</strong> {{ curso.min_passing_grade }}</p>
+    <p><strong>Asistencia mínima:</strong> {{ curso.min_attendance_percentage }}%</p>
+    <p><strong>Estado:</strong> {{ curso.course_status }}</p>
+
+    <a href="{% url 'lista_cursos' %}" class="btn btn-secondary">
+        Volver
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de categoría{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Detalle de categoría</h2>
+
+    <p><strong>ID:</strong> {{ categoria.course_category_id }}</p>
+    <p><strong>Nombre:</strong> {{ categoria.category_name }}</p>
+    <p><strong>Descripción:</strong> {{ categoria.description }}</p>
+
+    <a href="{% url 'lista_categoria_cursos' %}" class="btn btn-secondary">
+        Volver al listado
+    </a>
+</div>
+{% endblock %}

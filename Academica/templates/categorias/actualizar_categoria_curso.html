@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Actualizar categoría{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Actualizar categoría de curso</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ formulario.as_p }}
+
+        <button type="submit" class="btn btn-warning">
+            Actualizar
+        </button>
+
+        <a href="{% url 'lista_categoria_cursos' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
@@ -19,13 +18,19 @@ urlpatterns = [
     path('profesores/registrar/',views.registrar_profesor,name='registrar_profesor'),
     path('profesores/<int:teacher_id>/detalle/',views.detalle_profesor,name='detalle_profesor'),
     #urls cursos y grupos
-    path('cursos/', views.cursos, name='cursos'),
-    path('cursos/<int:course_id>/detalle/', views.detalle_cursos, name='detalle_curso'),
     path('cursos/<int:course_id>/grupos/', views.grupos, name='grupos'),
     path('cursos/<int:course_id>/grupos/registrar/', views.registrar_grupo, name='registrar_grupo'),
-    path('cursos/registrar/', views.registrar_grupo, name='registrar_curso'),
     #urls categorias
-    path('categorias/', views.listado_categorias, name='lista_categorias'),
+    path('categorias/', views.listado_categoria_curso, name='lista_categorias'),
+    path('cursos/', views.listado_cursos, name='lista_cursos'),
+    path('cursos/<int:course_id>/grupos/',views.grupos,name='grupos'),
+    path('categorias/<int:id>/', views.detalle_categoria_curso, name='detalle_categoria_cursos'),
+    path('categorias/registrar/',views.registrar_categoria_curso,name='registrar_categoria_curso'),
+    path('categorias/actualizar/<int:id>/',views.actualizar_categoria_curso,name='actualizar_categoria_curso',),
+    path('categorias/eliminar/<int:id>/',views.eliminar_categoria_curso,name='eliminar_categoria_curso'),
+    #urls cursos
+    path('cursos/registrar/', views.registrar_curso, name='registrar_curso'),
+    path('cursos/<int:id>/',views.detalle_curso,name='detalle_curso'),
 ]
 
 if settings.DEBUG:
