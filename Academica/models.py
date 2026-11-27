@@ -1,13 +1,13 @@
 from django.db import models
 
-# Cada clase tiene un método __str__() que devuelve su llave primaria como texto.
+# Cada clase tiene un metodo __str__() que devuelve su llave primaria como texto.
 #Solo se poblaron las tablas con llaves primarias 
 
 class user_status(models.Model):
     user_status_id = models.PositiveBigIntegerField(primary_key=True)
     name_status = models.CharField(max_length=50)
 
-#Función para mostrar el nombre del estado de usuario en lugar del ID
+#Funcion para mostrar el nombre del estado de usuario en lugar del ID
     def __str__(self):
         return str(self.user_status_id)
 #Función para definir el nombre de la tabla en la base de datos

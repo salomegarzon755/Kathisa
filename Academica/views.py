@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from Academica.models import user, student, teacher, course, course_group
-from django.shortcuts import render, get_object_or_404
+from Academica.models import user, student, teacher, course,course_group,course_category
+from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
+from django.http import HttpResponseNotFound
+
 
 # Create your views here.
 
@@ -65,3 +68,30 @@ def grupos(request, course_id):
         'total_grupos': grupos.count(),
     }
     return render(request, 'grupos.html', contexto)
+
+    
+    # LISTADO DE LAS CATEGORIAS
+
+def listado_categorias(request):
+    categorias = course_category.objects.all()
+
+    return render(
+        request,
+        'categorias/listado_categorias.html',
+        {'categorias': categorias}
+    )
+
+
+def detalle_categoria(request, id):
+    categoria = get_object_or_404(
+        course_category,
+        course_category_id=id
+    )
+
+    return render(
+        request,
+        'categorias/detalle_categoria.html',
+        {'categoria': categoria}
+    )
+
+   
